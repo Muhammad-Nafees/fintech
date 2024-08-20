@@ -24,6 +24,9 @@ interface Props {
   error: string | undefined;
   value: string | undefined;
   initialTouched: boolean;
+  handleIconVisible?:any
+  isIconVisible?:boolean;
+
 }
 
 const inputStyle: StyleProp<TextStyle> = {
@@ -43,6 +46,8 @@ const CustomInput = ({
   error,
   value,
   touched,
+  handleIconVisible,
+  isIconVisible
 }: Props) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
@@ -69,6 +74,7 @@ const CustomInput = ({
         }}>
         <TextInput
           style={inputStyle}
+          secureTextEntry={isIconVisible}
           placeholder={placeholder}
           onChangeText={(value: string) => onchange(value)}
           underlineColorAndroid="transparent"
@@ -78,8 +84,8 @@ const CustomInput = ({
         />
 
         {initialTouched && (
-          <TouchableOpacity activeOpacity={0.5}>
-            <EyeIcon name="eye" size={22} color={COLORS.grey500} />
+          <TouchableOpacity onPress={handleIconVisible} activeOpacity={0.5}>
+            <EyeIcon name={isIconVisible ? "eye":"noteye"} size={22} color={COLORS.grey500} />
           </TouchableOpacity>
         )}
       </View>

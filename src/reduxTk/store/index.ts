@@ -12,9 +12,9 @@ import {
 } from 'redux-persist';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import {PersistSchema} from '../interface';
+import {PersistSchema} from '../../interface';
 
-const persistConfig = {
+const persistConfig:PersistSchema = {
   key: 'root',
   storage: AsyncStorage,
 };

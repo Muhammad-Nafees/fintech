@@ -1,6 +1,6 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import MutualFunds from '../screens/mainStackScreens/MutualFunds';
+import BottomTabNavigation from './BottomTabsNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -8,7 +8,10 @@ const MainStackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="MutualFunds" component={MutualFunds} />
+        <Stack.Screen
+          name="BottomTabNavigation"
+          component={BottomTabNavigation}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

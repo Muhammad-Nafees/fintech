@@ -1,13 +1,14 @@
-import { InteractionManager } from "react-native";
+import {AsyncStorageStatic} from '@react-native-async-storage/async-storage';
+import {InteractionManager} from 'react-native';
 
 export interface AuthStackParams {
   SignIn: string;
 }
 
 export interface LoginCredientialsSchema {
-  email:string;
-  password:string
-} 
+  email: string;
+  password: string;
+}
 
 export interface InputStyles {
   width: number;
@@ -24,4 +25,13 @@ export interface InputStyles {
   backgroundColor: string;
   borderWidth: number;
   borderColor: string;
+}
+
+export interface PersistSchema {
+  key: string;
+  storage: AsyncStorageStatic;
+}
+
+export interface MainStackParams {
+  MutualFunds:string
 }

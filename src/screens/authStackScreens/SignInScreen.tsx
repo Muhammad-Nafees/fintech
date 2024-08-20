@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   StyleSheet,
   KeyboardAvoidingView,
+  StatusBar,
 } from 'react-native';
 import {fontFamilies} from '../../utils/fonts';
 import {moderateScale, verticalScale} from '../../utils/metrics';
@@ -23,16 +24,18 @@ import {loginUser} from '../../reduxTk/features/UserSlice';
 const SignInScreen = () => {
   const dispatch = useDispatch<Dispatch<UnknownAction>>();
   const [isLoading, setIsLoading] = useState(false);
+  const [isIconVisible, setIsIconVisible] = useState<boolean>(true);
+
+  const handleIconVisible = () => {
+    setIsIconVisible(!isIconVisible);
+  };
 
   const handleSubmit = async (values: LoginCredientialsSchema) => {
-    console.log('🚀 ~ handleSubmit ~ values:', values);
     setIsLoading(true);
     try {
       const responseData = await login_api(values);
       dispatch(loginUser(responseData.access_token));
       setIsLoading(false);
-
-      console.log('🚀 ~ handleSubmit ~ responseData:', responseData);
       return responseData;
     } catch (error) {
       setIsLoading(false);
@@ -51,8 +54,8 @@ const SignInScreen = () => {
           onSubmit={handleSubmit}
           validationSchema={validationLogin}>
           {({values, errors, touched, handleChange, submitForm}) => (
-            // console.log(values),
             <View style={{paddingTop: verticalScale(60), alignSelf: 'center'}}>
+              <StatusBar backgroundColor={COLORS.whiteColor} />
               <Text style={styles.loginText}>Login</Text>
 
               <View style={{paddingTop: verticalScale(14)}}>
@@ -74,6 +77,8 @@ const SignInScreen = () => {
                   value={values.password}
                   error={errors.password}
                   initialTouched={true}
+                  handleIconVisible={handleIconVisible}
+                  isIconVisible={isIconVisible}
                 />
               </View>
 

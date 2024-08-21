@@ -85,7 +85,7 @@ const CustomInput = ({
 
         {initialTouched && (
           <TouchableOpacity onPress={handleIconVisible} activeOpacity={0.5}>
-            <EyeIcon name={isIconVisible ? "eye":"noteye"} size={22} color={COLORS.grey500} />
+            <EyeIcon name={!isIconVisible ? "eye":"eye-off"} size={22} color={COLORS.grey500} />
           </TouchableOpacity>
         )}
       </View>

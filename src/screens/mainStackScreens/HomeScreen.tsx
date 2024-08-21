@@ -11,7 +11,7 @@ const HomeScreen = () => {
         style={{
           color: COLORS.grey500,
           fontSize: moderateScale(30),
-          fontFamily: fontFamilies.PublicSans.PublicSans_semiBold
+          fontFamily: fontFamilies.PublicSans.PublicSans_semiBold,
         }}>
         HomeScreen
       </Text>

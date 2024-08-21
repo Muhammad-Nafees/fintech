@@ -121,7 +121,7 @@ const MutualFunds = () => {
         </View>
       </View>
 
-      <ScrollView style={{}}>
+      <ScrollView>
         <View
           style={{
             paddingLeft: horizontalScale(18),
@@ -129,22 +129,24 @@ const MutualFunds = () => {
           <Text style={styles.totalFundsText}>Total Funds (63)</Text>
         </View>
 
-        {(searchValue.length > 0 ? filteredDataState : data).map(
-          (item: any, index: any) => {
-            return (
-              <BankCardInfo
-                item={item}
-                key={index}
-                viewDetails={'View Details'}
-                bankInfo={'Alfalah Islamic Money Market Fund'}
-                ratedPercentage={' + 20.20%'}
-                image={require('../../../assets/images/bankmeezan.png')}
-                extraStyle={{}}
-              />
-            );
-          },
-          // )
-        )}
+        <View style={{paddingBottom: verticalScale(40)}}>
+          {(searchValue.length > 0 ? filteredDataState : data).map(
+            (item: any, index: any) => {
+              return (
+                <BankCardInfo
+                  item={item}
+                  key={index}
+                  viewDetails={'View Details'}
+                  bankInfo={'Alfalah Islamic Money Market Fund'}
+                  ratedPercentage={' + 20.20%'}
+                  image={require('../../../assets/images/bankmeezan.png')}
+                  extraStyle={{}}
+                />
+              );
+            },
+            // )
+          )}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

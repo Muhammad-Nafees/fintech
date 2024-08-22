@@ -10,6 +10,11 @@ export interface LoginCredientialsSchema {
   password: string;
 }
 
+export interface CalculatingValues {
+  price: number;
+  category: string;
+}
+
 export interface InputStyles {
   width: number;
   color: string;
@@ -33,5 +38,5 @@ export interface PersistSchema {
 }
 
 export interface MainStackParams {
-  MutualFunds:string
+  MutualFunds: string;
 }
